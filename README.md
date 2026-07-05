@@ -13,10 +13,6 @@
 
 #### Actividad 2
 
-# Video
-
-<https://drive.google.com/file/d/1vjOIGzUG1jVbvNTcJtG36O-eXbWVatvI/view?usp=sharing>
-
 # LIBRERÍA utileria.js
 
 Sirve para la validación de datos de entrada en formularios. Puede integrarse de forma sencilla y cubre las reglas básicas de formato para cada campo requisitado.
@@ -40,6 +36,10 @@ Oaxaca de Juarez, Oaxaca.
 </div>
 
 ## Librería de Funciones de Validación - Actividad 2
+
+### Video
+
+<https://drive.google.com/file/d/1vjOIGzUG1jVbvNTcJtG36O-eXbWVatvI/view?usp=sharing>
 
 En este archivo escribiremos funciones simples de JavaScript.
 Las funciones son bloques de código que hacen una tarea específica.

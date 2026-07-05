@@ -1,0 +1,35 @@
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+section {
+    padding: 20px 20px;
+}
+
+h1 {
+    color: rgb(0, 0, 0);
+}
+
+p {
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+.container {
+    max-width: 50%;
+}
+
+.form-control {
+    background-color: rgba(252, 252, 252, 0.785);
+    padding: 3px;
+    border-radius: 6px;
+    border-width: 2px;
+    border-color: rgb(121, 121, 121);
+}
+
+#Registro {
+    border-radius: 2%;
+    padding: 3%;
+    max-width: 100%;
+    background-color: rgb(255, 255, 255);
+}

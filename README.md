@@ -1,7 +1,4 @@
 <div align="center">
-
-**[ Logo SEP ]** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **[ Logo ITEO ]** &nbsp;&nbsp;&nbsp; **[ Logo TecNM ]**
-
 ---
 
 <br><br>

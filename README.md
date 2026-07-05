@@ -1,8 +1,13 @@
 # Actividad 2 - Objetivo: Crear una librería JS funcional (sin frameworks, sin componentes visuales) que usarán en su formulario, modal y login.html
 
+## Enlace a la pagina de prueba de la utileria
+
+[Click aqui](https://akndrow.github.io/Actividad-2---Utileria/HTML/index.html)
+
 ## Requerimientos del Proyecto
 
-### Funciones obligatorias — deben implementar exactamente estas 6 funciones:
+### Funciones obligatorias — deben implementar exactamente estas 6 funciones
+
 - validarCorreo(correo) → boolean — valida formato de correo electrónico
 - soloLetras(texto) → boolean — solo letras mayúsculas/minúsculas, acepta vocales acentuadas
 - validarLongitud(numero, maxLongitud) → boolean — valida longitud de un número
@@ -10,19 +15,21 @@
 - esMayorDeEdad(fechaNacimiento) → boolean — valida si es mayor de edad
 - validarPassword(password) → boolean — requiere mayúscula, minúscula, número, carácter especial y mínimo 8 caracteres
 
-### Integración obligatoria:
+### Integración obligatoria
+
 - Formulario HTML que use estas validaciones
 - Ventana modal que muestre la edad calculada
 - login.html que use validarPassword y validarCorreo
 
-### Estructura del repositorio: 
+### Estructura del repositorio
+
 - utileria
-    - README.md 
-    - index.html 
-    - login.html 
-    - /css → styles.css 
-    - /js → utileria.js 
-    - /img → imagenes usadas (si aplica)
+  - README.md
+  - index.html
+  - login.html
+  - /css → styles.css
+  - /js → utileria.js
+  - /img → imagenes usadas (si aplica)
 
 El README debe incluir:
 Portada (nombre + qué problema resuelve)

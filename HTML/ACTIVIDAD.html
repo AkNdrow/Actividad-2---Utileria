@@ -21,24 +21,25 @@
             <form action="" class="form-control">
                 <div id="Registro">
                     <label for="nombre" class="form-label" style="color: rgb(0, 0, 0)">Nombre</label>
-                    <input type="text" id="nombre" placeholder="Nombre" class="form-control" style="margin-bottom: 2%">
+                    <!-- Cambiamos margin-bottom: 2% a 1rem (unidad adaptativa para espaciado) -->
+                    <input type="text" id="nombre" placeholder="Nombre" class="form-control" style="margin-bottom: 1rem">
 
                     <label for="apellido" class="form-label" style="color: rgb(0, 0, 0)">Apellido</label>
                     <input type="text" id="apellido" placeholder="Apellido" class="form-control"
-                        style="margin-bottom: 2%">
+                        style="margin-bottom: 1rem">
 
                     <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
-                    <input type="date" id="fechaNacimiento" class="form-control" style="margin-bottom: 2%">
+                    <input type="date" id="fechaNacimiento" class="form-control" style="margin-bottom: 1rem">
 
                     <label for="correo" class="form-label">Correo</label>
-                    <input type="email" id="correo" placeholder="Correo" class="form-control" style="margin-bottom: 2%">
+                    <input type="email" id="correo" placeholder="Correo" class="form-control" style="margin-bottom: 1rem">
 
                     <label for="password" class="form-label">Contraseña</label>
                     <input type="password" id="password" placeholder="Contraseña" class="form-control"
-                        style="margin-bottom: 4%">
+                        style="margin-bottom: 1.5rem">
 
                     <button type="submit" class="btn btn-success" onclick="Validaciones(event)"
-                        style="position: center; margin-left: 50%; padding: 5px;">Prueba</button>
+                        style="display: block; margin: 0 auto; padding: 0.5rem 2rem;">Prueba</button>
                 </div>
             </form>
         </div>

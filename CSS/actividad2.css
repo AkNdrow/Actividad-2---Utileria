@@ -3,33 +3,52 @@ body {
 }
 
 section {
-    padding: 20px 20px;
+    /* En lugar de usar 20px, usamos 'rem' para espaciado vertical y '%' para horizontal. 
+       2rem equivale a 32px (si la fuente base es 16px). */
+    padding: 2rem 5%;
 }
 
 h1 {
     color: rgb(0, 0, 0);
+    /* Tipografía usando rem */
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
 p {
     text-align: center;
     color: rgb(0, 0, 0);
+    /* Tipografía usando rem */
+    font-size: 1rem;
 }
 
 .container {
-    max-width: 50%;
+    /* En lugar de forzar max-width: 50% (lo cual se vería minúsculo en un celular),
+       hacemos que ocupe el 90% del ancho, pero que NO pase de 600px en pantallas de PC. */
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    /* Para centrar el contenedor en la pantalla */
 }
 
 .form-control {
     background-color: rgba(252, 252, 252, 0.785);
-    padding: 3px;
-    border-radius: 6px;
-    border-width: 2px;
+    /* padding con rem (espacio que el usuario lee/toca) */
+    padding: 0.5rem 1rem;
+    /* border-radius con rem en lugar de px */
+    border-radius: 0.5rem;
+    /* Los bordes finos sí pueden llevar px, como menciona tu teoría */
+    border-width: 1px;
     border-color: rgb(121, 121, 121);
 }
 
 #Registro {
-    border-radius: 2%;
-    padding: 3%;
+    /* El border-radius en porcentajes a veces deforma la caja, es mejor usar rem */
+    border-radius: 1rem;
+    /* Padding interno en rem (espacio que envuelve al texto) */
+    padding: 2rem;
+    /* Regla de seguridad para contenedores */
     max-width: 100%;
     background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

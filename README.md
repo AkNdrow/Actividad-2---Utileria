@@ -46,6 +46,24 @@ Las funciones son bloques de código que hacen una tarea específica.
 Al separarlas aquí, podemos usarlas en diferentes partes de nuestra página
 sin tener que escribir el código muchas veces.
 
+### Problemas que resuelve
+
+Esta librería soluciona los problemas más comunes al recolectar datos en formularios web:
+- **Datos incorrectos:** Previene el ingreso de correos mal escritos, números de teléfono con letras o CURPs inválidas.
+- **Inconsistencia:** Estandariza la captura de nombres y valida la longitud de los campos.
+- **Seguridad:** Obliga a utilizar contraseñas seguras y verifica que coincidan.
+- **Experiencia de usuario (UX):** Brinda mensajes claros e inmediatos (usando SweetAlert2) para que el usuario sepa exactamente qué debe corregir antes de enviar sus datos.
+
+### Guía de instalación
+
+Para utilizar esta librería en tu propio proyecto, sigue estos sencillos pasos:
+
+1. **Agrega SweetAlert2:** Asegúrate de incluir la librería de alertas en el `<head>` de tu HTML.
+2. **Vincula la utilería:** Coloca la referencia al archivo `utileria.js` al final de tu documento HTML (antes de cerrar el `<body>`):
+   ```html
+   <script src="./JS/utileria.js"></script>
+   ```
+3. **Ejecuta la validación:** Agrega el evento `onclick="Validaciones(event)"` al botón de envío de tu formulario. Recuerda que los IDs de tus `<input>` deben coincidir con los que busca la función maestra.
 ### Función 1: validarCorreo
 
 Revisa si un texto tiene la forma correcta de un correo (<ejemplo@correo.com>).

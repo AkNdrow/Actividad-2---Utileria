@@ -1,45 +1,39 @@
-# Actividad 2 - Objetivo: Crear una librería JS funcional (sin frameworks, sin componentes visuales) que usarán en su formulario, modal y login.html
+<div align="center">
 
-## Enlace a la pagina de prueba de la utileria
+**[ Logo SEP ]** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **[ Logo ITEO ]** &nbsp;&nbsp;&nbsp; **[ Logo TecNM ]**
 
-[Click aqui](https://akndrow.github.io/Actividad-2---Utileria/HTML/index.html)
+---
 
-## Requerimientos del Proyecto
+<br><br>
 
-### Funciones obligatorias — deben implementar exactamente estas 6 funciones
+### Ingenieria en sistemas computacionales
 
-- validarCorreo(correo) → boolean — valida formato de correo electrónico
-- soloLetras(texto) → boolean — solo letras mayúsculas/minúsculas, acepta vocales acentuadas
-- validarLongitud(numero, maxLongitud) → boolean — valida longitud de un número
-- calcularEdad(fechaNacimiento) → número entero — calcula edad a partir de fecha de nacimiento
-- esMayorDeEdad(fechaNacimiento) → boolean — valida si es mayor de edad
-- validarPassword(password) → boolean — requiere mayúscula, minúscula, número, carácter especial y mínimo 8 caracteres
+<br>
 
-### Integración obligatoria
+#### Programación web
 
-- Formulario HTML que use estas validaciones
-- Ventana modal que muestre la edad calculada
-- login.html que use validarPassword y validarCorreo
+#### Tema 2
 
-### Estructura del repositorio
+<br>
 
-- utileria
-  - README.md
-  - index.html
-  - login.html
-  - /css → styles.css
-  - /js → utileria.js
-  - /img → imagenes usadas (si aplica)
+#### Actividad 2
 
-El README debe incluir:
-Portada (nombre + qué problema resuelve)
-Instalación (<script src="utileria.js"></script>)
-Uso con ejemplos de código embebido.(No es solo describir con palabras qué hace la librería. Es pegar el código real dentro del README, usando bloques de Markdown (tres comillas invertidas) para que se vea formateado, no como texto plano.)
-Capturas de pantalla (consola mostrando resultados)
-Video corto (máx. 1 min): graba tu voz usando tu librería como si fuera un demo promocional, muestra el problema que resuelve, cómo se usa, y el resultado en acción (mensaje en consola, alerta, cambio en la página). No es solo "correr el código", es vender tu librería en 60 segundos.
-Rúbrica (20 puntos)
-4 pts. Funciones obligatorias correctas
-4 pts. Integración real (formulario + modal + login)
-4 pts. Funciones propias + creatividad
-4 pts. Documentación (README, capturas, video)
-4 pts. GitHub Pages funcionando correctamente
+# LIBRERÍA UTILERIA.JS
+
+<br><br><br>
+
+**Docente:**<br>
+Ing. Adelina Martínez Nieto
+
+<br><br>
+
+**Estudiantes:**<br>
+Cuevas Garcia Andrés
+
+<br><br><br><br><br><br>
+
+Oaxaca de Juarez, Oaxaca.
+<br><br>
+4 de Julio de 2026
+
+</div>

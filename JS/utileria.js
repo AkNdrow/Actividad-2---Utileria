@@ -1,193 +1,249 @@
 /**
- * Librería de Funciones de Validación - Actividad 2
- * 
- * En este archivo escribiremos funciones simples de JavaScript.
- * Las funciones son bloques de código que hacen una tarea específica.
- * Al separarlas aquí, podemos usarlas en diferentes partes de nuestra página
- * sin tener que escribir el código muchas veces.
- */
-
-/**
- * Función 1: validarCorreo
- * Revisa si un texto tiene la forma correcta de un correo (ejemplo@correo.com).
- * 
- * @param {string} correo - El texto que queremos validar.
+ * @param {string} correo - El texto a validar.
  * @returns {boolean} - Retorna true si es válido, false si no lo es.
  */
 function validarCorreo(correo) {
-    // Las expresiones regulares (regex) son patrones para buscar texto.
-    // Aunque parece un texto extraño, esta regex simplemente revisa que haya:
-    // texto + un arroba (@) + texto + un punto (.) + texto.
+    console.log(`Ejecutando validarCorreo con parámetro: "${correo}"`);
     let formatoCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let resultado = formatoCorreo.test(correo);
+    console.log(`Resultado validarCorreo: ${resultado}`);
+    return resultado;
+}
 
-    // El método .test() verifica si el "correo" cumple con nuestro "formatoCorreo".
-    // Nos devuelve verdadero (true) o falso (false).
-    return formatoCorreo.test(correo);
+function soloNumeros(texto) {
+    console.log(`Ejecutando soloNumeros con parámetro: "${texto}"`);
+    let formatoNumeros = /^\d+$/;
+    let resultado = formatoNumeros.test(texto);
+    console.log(`Resultado soloNumeros: ${resultado}`);
+    return resultado;
 }
 
 /**
- * Función 2: soloLetras
- * Revisa que el texto que escriba el usuario solo contenga letras y espacios.
- * 
- * @param {string} texto - El texto a revisar (como un nombre).
+ * @param {string} telefono - El número de teléfono a revisar.
+ * @returns {boolean} - Retorna true si el número es válido, false si no lo es.
+ */
+function validarNumeroCel(telefono) {
+    console.log(`Ejecutando validarNumeroCel con parámetro: "${telefono}"`);
+    if (soloNumeros(telefono) && validarLongitud(telefono, 10)) {
+        console.log(`Resultado validarNumeroCel: true`);
+        return true;
+    } else {
+        console.log(`Resultado validarNumeroCel: false`);
+        return false;
+    }
+}
+
+/**
+ * @param {string} texto - El texto a revisar.
  * @returns {boolean} - Retorna true si solo hay letras, false si hay números o símbolos.
  */
 function soloLetras(texto) {
-    // Esta regex busca letras mayúsculas (A-Z), minúsculas (a-z), 
-    // letras con acentos (áéíóú), la ñ, y espacios en blanco (\s).
+    console.log(`Ejecutando soloLetras con parámetro: "${texto}"`);
     let formatoLetras = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
-
-    return formatoLetras.test(texto);
+    let resultado = formatoLetras.test(texto);
+    console.log(`Resultado soloLetras: ${resultado}`);
+    return resultado;
 }
 
 /**
- * Función 3: validarLongitud
- * Revisa que un texto o número no sea más largo de lo que permitimos.
- * 
  * @param {string} texto - El texto o número a medir.
  * @param {number} maxLongitud - El límite máximo de letras o números.
  * @returns {boolean}
  */
 function validarLongitud(texto, maxLongitud) {
-    // Convertimos lo que nos manden a String (texto) por si nos mandan un número,
-    // ya que los textos tienen la propiedad ".length" para saber cuántos caracteres tienen.
+    console.log(`Ejecutando validarLongitud con texto: "${texto}", max: ${maxLongitud}`);
     let textoConvertido = String(texto);
 
-    // Usamos un condicional (if). Si la longitud es menor o igual al máximo...
     if (textoConvertido.length <= maxLongitud) {
-        return true; // ...está bien, es válido.
+        console.log(`Resultado validarLongitud: true`);
+        return true; // Es válido.
     } else {
-        return false; // ...es demasiado largo, es inválido.
+        console.log(`Resultado validarLongitud: false`);
+        return false; // Es demasiado largo, es inválido.
     }
 }
 
 /**
- * Función 4: calcularEdad
- * Calcula cuántos años tiene una persona a partir de su fecha de nacimiento.
- * 
+ * @param {string} nombre - El nombre del usuario.
+ * @param {string} apellidoPaterno - El apellido paterno del usuario.
+ * @param {string} apellidoMaterno - El apellido materno del usuario.
+ * @returns {boolean} - Retorna true si el nombre es válido, false si no lo es.
+ */
+function validarNombreCompleto(nombre, apellidoPaterno, apellidoMaterno) {
+    console.log(`Ejecutando validarNombreCompleto para: "${nombre} ${apellidoPaterno} ${apellidoMaterno}"`);
+
+    // Se evalúa cada parte usando la función existente
+    let nombreValido = soloLetras(nombre);
+    let paternoValido = soloLetras(apellidoPaterno);
+    let maternoValido = soloLetras(apellidoMaterno);
+
+    // Solo retorna true si las TRES partes son correctas
+    if (nombreValido && paternoValido && maternoValido) {
+        console.log("Resultado validarNombreCompleto: true (El nombre es válido)");
+        return true;
+    } else {
+        console.log("Resultado validarNombreCompleto: false (Contiene números o caracteres inválidos)");
+        return false;
+    }
+}
+
+/**
  * @param {string} fechaNacimiento - Fecha elegida por el usuario (ej. "2000-05-20").
  * @returns {number} - Retorna la edad en años.
  */
 function calcularEdad(fechaNacimiento) {
-    // "new Date()" convierte el texto en un "Objeto de fecha" que JavaScript entiende.
+    console.log(`Ejecutando calcularEdad con fecha: "${fechaNacimiento}"`);
     let fecha = new Date(fechaNacimiento);
-
-    // Obtenemos la fecha del día de hoy.
     let hoy = new Date();
-
-    // .getFullYear() obtiene el año (ej. 2024). Restamos el año actual menos el año en que nació.
     let edad = hoy.getFullYear() - fecha.getFullYear();
-
-    // Pero espera, ¿qué tal si todavía no ha cumplido años este año?
-    // Calculamos la diferencia de meses.
     let diferenciaMeses = hoy.getMonth() - fecha.getMonth();
-
-    // Si la diferencia de meses es negativa (el mes actual es antes de su mes de cumpleaños)
-    // O SI estamos en el mismo mes (diferencia 0) pero el día de hoy es menor a su día de cumpleaños...
     if (diferenciaMeses < 0 || (diferenciaMeses === 0 && hoy.getDate() < fecha.getDate())) {
-        // Significa que aún no cumple años en este año, así que le restamos 1 a la edad.
         edad = edad - 1;
     }
-
-    return edad; // Entregamos el número final.
+    console.log(`Resultado calcularEdad: ${edad} años`);
+    return edad;
 }
 
 /**
- * Función 5: esMayorDeEdad
- * Nos dice rápidamente si alguien tiene 18 años o más.
- * 
  * @param {string} fechaNacimiento - La fecha a evaluar.
  * @returns {boolean} - Retorna true si es mayor, false si es menor.
  */
 function esMayorDeEdad(fechaNacimiento) {
-    // Aquí es donde la programación es genial: reutilizamos nuestra propia función de arriba.
+    console.log(`Ejecutando esMayorDeEdad con fecha: "${fechaNacimiento}"`);
+    // Se reutiliza la función anterior para el cálculo
     let edad = calcularEdad(fechaNacimiento);
 
-    // Si la edad que calculamos es mayor o igual (>=) a 18...
+    // Si la edad calculada es mayor o igual a 18...
     if (edad >= 18) {
+        console.log(`Resultado esMayorDeEdad: true (es mayor)`);
         return true;
     } else {
+        console.log(`Resultado esMayorDeEdad: false (es menor)`);
         return false;
     }
 }
 
 /**
- * Función 6: validarPassword
- * Revisa que una contraseña sea segura y cumpla ciertas reglas.
- * 
  * @param {string} password - La contraseña a revisar.
  * @returns {boolean}
  */
 function validarPassword(password) {
+    console.log(`Ejecutando validarPassword... (contraseña oculta por seguridad)`);
     // Regla 1: Debe tener al menos 8 caracteres.
-    // Si es menor a 8, regresamos false inmediatamente y la función termina aquí.
+    // Si es menor a 8, retorna false inmediatamente y la función termina.
     if (password.length < 8) {
+        console.log(`Resultado validarPassword: false (es muy corta)`);
         return false;
     }
 
-    // Regla 2: Necesitamos revisar si hay diferentes tipos de letras y números.
-    // Volvemos a usar expresiones regulares (.test) para buscar dentro del password.
+    // Regla 2: Se necesita revisar si hay diferentes tipos de letras y números.
+    // Se usan expresiones regulares (.test) para buscar dentro de la contraseña.
     let tieneMayuscula = /[A-Z]/.test(password); // Busca al menos una mayúscula
     let tieneMinuscula = /[a-z]/.test(password); // Busca al menos una minúscula
     let tieneNumero = /[0-9]/.test(password);    // Busca al menos un número
     let tieneEspecial = /[^A-Za-z0-9]/.test(password); // Busca algo que NO sea letra ni número (símbolos)
 
     // El operador && significa "Y" (AND).
-    // Queremos que TODAS las condiciones sean verdaderas al mismo tiempo.
+    // Se requiere que TODAS las condiciones sean verdaderas al mismo tiempo.
     if (tieneMayuscula && tieneMinuscula && tieneNumero && tieneEspecial) {
+        console.log(`Resultado validarPassword: true (es segura)`);
         return true;
     } else {
+        console.log(`Resultado validarPassword: false (no cumple las reglas)`);
         return false;
     }
 }
+
 /**
- * Función Validaciones
- * Esta función se ejecuta al hacer clic en el botón "Prueba".
- * Recibe un "evento" (event) como parámetro.
+ * @param {string} password - La contraseña a revisar.
+ * @param {string} confirmarPassword - La contraseña a comparar.
+ * @returns {boolean} - Retorna true si las contraseñas son iguales, false si no lo son.
+ */
+function validarPasswordIgualdad(password, confirmarPassword) {
+    // Compara si las dos contraseñas son iguales.
+    if (password === confirmarPassword) {
+        console.log(`Resultado validarPasswordIgualdad: true (las contraseñas son iguales)`);
+        return true;
+    } else {
+        console.log(`Resultado validarPasswordIgualdad: false (las contraseñas no son iguales)`);
+        return false;
+    }
+}
+
+/**
+ * @param {string} telefono - El número de teléfono a revisar.
+ * @returns {boolean} - Retorna true si el número es válido, false si no lo es.
+ */
+function validarTelefono(telefono) {
+    // Verifica que tenga exactamente 10 dígitos y que sean todos números.
+    let formatoTelefono = /^\d{10}$/;
+    return formatoTelefono.test(telefono);
+}
+
+/**
+ * @param {string} curp - La CURP a revisar.
+ * @returns {boolean} - Retorna true si la CURP es válida, false si no lo es.
+ */
+function validarEstructuraCURP(curp) {
+    console.log(`Ejecutando validarEstructuraCURP con: "${curp}"`);
+    // Expresión regular ajustada a 18 caracteres
+    let formatoCURP = /^[A-Z]{4}\d{6}[HM][A-Z]{2}[A-Z]{3}[A-Z0-9]\d{1}$/;
+
+    let esValida = formatoCURP.test(curp);
+    console.log(`Resultado validarEstructuraCURP: ${esValida}`);
+    return esValida;
+}
+
+/**
+ * @param {Event} event - El evento que dispara la función.
+ * @returns {void}
  */
 function Validaciones(event) {
-    // Esto es MUY importante: Evita que el formulario recargue la página automáticamente.
+    // Evita que la página se recargue
     if (event) event.preventDefault();
 
-    // 1. Obtenemos los valores de los inputs usando sus IDs
+    // 1. Se obtienen los valores usando los IDs EXACTOS del HTML
     let nombre = document.getElementById('nombre').value;
-    let apellido = document.getElementById('apellido').value;
+    let apellidoPaterno = document.getElementById('apellidoPaterno').value;
+    let apellidoMaterno = document.getElementById('apellidoMaterno').value;
     let fecha = document.getElementById('fechaNacimiento').value;
     let correo = document.getElementById('correo').value;
+    let telefono = document.getElementById('telefono').value;
     let password = document.getElementById('password').value;
+    let confirmarPassword = document.getElementById('confirmarPassword').value;
+    let curp = document.getElementById('Curp').value.toUpperCase();
 
-    // 2. Revisamos si todos los campos tienen información
-    if (!nombre || !apellido || !fecha || !correo || !password) {
+    // 2. Se revisa si todos los campos tienen información
+    if (!nombre || !apellidoPaterno || !apellidoMaterno || !fecha || !correo || !password || !curp) {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: 'Por favor, llena todos los campos.'
         });
-        return; // Detiene la función aquí
+        return;
     }
 
-    // 3. Probamos función: soloLetras
-    if (!soloLetras(nombre) || !soloLetras(apellido)) {
+    // 3. Prueba de función: soloLetras (revisa nombre y ambos apellidos)
+    if (!soloLetras(nombre) || !soloLetras(apellidoPaterno) || !soloLetras(apellidoMaterno)) {
         Swal.fire({
             icon: 'warning',
             title: 'Nombre inválido',
-            text: 'El nombre y apellido solo deben contener letras.'
+            text: 'El nombre y los apellidos solo deben contener letras.'
         });
         return;
     }
 
-    // 4. Probamos función: validarLongitud
-    // Revisamos que el nombre no sea exageradamente largo
-    if (!validarLongitud(nombre, 30)) {
+    // 4. Prueba de función: validarLongitud
+    if (!validarLongitud(nombre, 30) || !validarLongitud(apellidoPaterno, 30) || !validarLongitud(apellidoMaterno, 30)) {
         Swal.fire({
             icon: 'warning',
-            title: 'Nombre muy largo',
-            text: 'El nombre no debe superar los 30 caracteres.'
+            title: 'Texto muy largo',
+            text: 'El nombre y apellidos no deben superar los 30 caracteres cada uno.'
         });
         return;
     }
 
-    // 5. Probamos funciones: calcularEdad y esMayorDeEdad
+    // 5. Prueba de funciones de edad
     let edadDelUsuario = calcularEdad(fecha);
     if (!esMayorDeEdad(fecha)) {
         Swal.fire({
@@ -198,7 +254,7 @@ function Validaciones(event) {
         return;
     }
 
-    // 6. Probamos función: validarCorreo
+    // 6. Prueba de función: validarCorreo
     if (!validarCorreo(correo)) {
         Swal.fire({
             icon: 'error',
@@ -208,7 +264,17 @@ function Validaciones(event) {
         return;
     }
 
-    // 7. Probamos función: validarPassword
+    // 7. Prueba de función: validarNumeroCel
+    if (!validarNumeroCel(telefono)) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Teléfono inválido',
+            text: 'El teléfono debe tener 10 dígitos.'
+        });
+        return;
+    }
+
+    // 9. Prueba de función: validarPassword
     if (!validarPassword(password)) {
         Swal.fire({
             icon: 'error',
@@ -218,11 +284,48 @@ function Validaciones(event) {
         return;
     }
 
-    // Si llegamos hasta aquí, todas las pruebas pasaron :)
+    // 10. Prueba de función: validarPasswordIgualdad
+    if (!validarPasswordIgualdad(password, confirmarPassword)) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Las contraseñas no coinciden',
+            text: 'Por favor, verifica que las contraseñas sean iguales.'
+        });
+        return;
+    }
+
+    // 11. Validar la estructura de la CURP
+    if (!validarEstructuraCURP(curp)) {
+        Swal.fire({
+            icon: 'error',
+            title: 'CURP Inválida',
+            text: 'El formato de la CURP no es correcto. Verifica que tenga 18 caracteres.'
+        });
+        return;
+    }
+
+    // 12. Relacionar datos: Validar fecha de la CURP
+    let fechaCurp = curp.substring(4, 10);
+    let partesFecha = fecha.split("-");
+    let anioCurp = partesFecha[0].substring(2, 4);
+    let mesCurp = partesFecha[1];
+    let diaCurp = partesFecha[2];
+    let fechaEscrita = anioCurp + mesCurp + diaCurp;
+
+    if (fechaCurp !== fechaEscrita) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Datos no coinciden',
+            text: `La fecha en tu CURP (${fechaCurp}) no coincide con tu fecha de nacimiento (${fechaEscrita}).`
+        });
+        return;
+    }
+
+    // Si la ejecución llega hasta aquí, todas las pruebas pasaron
     Swal.fire({
         icon: 'success',
-        title: '¡Todo perfecto  !',
-        text: `Hola ${nombre} ${apellido}, tienes ${edadDelUsuario} años. ¡Tus datos son válidos!`,
-        confirmButtonColor: '#198754' // Color verde de Bootstrap
+        title: '¡Todo perfecto!',
+        text: `Hola ${nombre} ${apellidoPaterno}, tienes ${edadDelUsuario} años y tu CURP es válida. ¡Registro exitoso!`,
+        confirmButtonColor: '#198754'
     });
 }

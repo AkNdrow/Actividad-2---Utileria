@@ -175,9 +175,15 @@ function validarPasswordIgualdad(password, confirmarPassword) {
  * @returns {boolean} - Retorna true si el número es válido, false si no lo es.
  */
 function validarTelefono(telefono) {
-    // Verifica que tenga exactamente 10 dígitos y que sean todos números.
-    let formatoTelefono = /^\d{10}$/;
-    return formatoTelefono.test(telefono);
+    //Validar que solo sean números
+    if (!soloNumeros(telefono)) {
+        return false;
+    }
+    //Verificar longitud
+    if (!validarLongitud(telefono, 10)) {
+        return false;
+    }
+    return true;
 }
 
 /**
@@ -197,6 +203,16 @@ function validarEstructuraCURP(curp) {
 /**
  * @param {Event} event - El evento que dispara la función.
  * @returns {void}
+ * @description Función que valida todos los campos del formulario.
+ * @param {string} nombre - Nombre del usuario.
+ * @param {string} apellidoPaterno - Apellido paterno del usuario.
+ * @param {string} apellidoMaterno - Apellido materno del usuario.
+ * @param {string} fechaNacimiento - Fecha de nacimiento del usuario.
+ * @param {string} correo - Correo electrónico del usuario.
+ * @param {string} telefono - Número de teléfono del usuario.
+ * @param {string} password - Contraseña del usuario.
+ * @param {string} confirmarPassword - Confirmación de la contraseña del usuario.
+ * @param {string} curp - CURP del usuario.
  */
 function Validaciones(event) {
     // Evita que la página se recargue

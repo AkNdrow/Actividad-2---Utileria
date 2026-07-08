@@ -4,7 +4,7 @@
  */
 function validarCorreo(correo) {
     console.log(`Ejecutando validarCorreo con parámetro: "${correo}"`);
-    let formatoCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let formatoCorreo = /^[^\s@]+@(gmail\.com|outlook\.com|hotmail\.com|tecnm\.edu\.mx)$/i;
     let resultado = formatoCorreo.test(correo);
     console.log(`Resultado validarCorreo: ${resultado}`);
     return resultado;
